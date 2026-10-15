@@ -2,7 +2,7 @@
 title Launch School-Based Exam Control System (SECS)
 echo ========================================================
 echo School-Based Exam Control System (SECS)
-echo Singapore Primary School Paper 1 (Writing) Standardisation
+echo Safe * Reliable * Credible * Efficient Platform
 echo ========================================================
 echo.
 echo Mode: Shared Network Drive / Local Offline Portal

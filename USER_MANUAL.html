@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SECS - User Manual & Operational Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 15mm 20mm 15mm;
+      @bottom-right {
+        content: "Page " counter(page);
+        font-size: 8pt;
+        color: #64748b;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", sans-serif;
+      }
+      @bottom-left {
+        content: "SECS User Manual | Singapore Primary School Paper 1 Standards";
+        font-size: 8pt;
+        color: #64748b;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", sans-serif;
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", Calibri, Helvetica, Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.55;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+
+    /* Print Break Utilities */
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+    .no-break {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* Header & Branding */
+    .doc-header {
+      border-bottom: 3px solid #0284c7;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .brand-badge {
+      display: inline-block;
+      background-color: #0284c7;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 11pt;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    h1 {
+      font-size: 20pt;
+      color: #0f172a;
+      margin: 4px 0 6px 0;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #475569;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 14pt;
+      color: #0369a1;
+      border-bottom: 1.5px solid #cbd5e1;
+      padding-bottom: 4px;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      page-break-after: avoid;
+    }
+    h3 {
+      font-size: 11pt;
+      color: #0f172a;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      font-weight: 700;
+      page-break-after: avoid;
+    }
+    h4 {
+      font-size: 10pt;
+      color: #334155;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-weight: 700;
+      page-break-after: avoid;
+    }
+
+    p {
+      margin: 0 0 8px 0;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 14px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      padding: 6px 8px;
+      text-align: left;
+      font-weight: 700;
+    }
+    td {
+      border: 1px solid #cbd5e1;
+      padding: 6px 8px;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin: 10px 0 12px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+    .callout-info {
+      background-color: #f0f9ff;
+      border-left: 4px solid #0284c7;
+      color: #0369a1;
+    }
+    .callout-success {
+      background-color: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #15803d;
+    }
+    .callout-warning {
+      background-color: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      color: #b45309;
+    }
+    .callout-alert {
+      background-color: #fef2f2;
+      border-left: 4px solid #ef4444;
+      color: #b91c1c;
+    }
+
+    /* Badges & Tags */
+    .pill-green {
+      display: inline-block;
+      background-color: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-size: 8pt;
+      font-weight: 600;
+      margin: 2px 3px 2px 0;
+    }
+    .pill-pink {
+      display: inline-block;
+      background-color: #fff1f2;
+      color: #9f1239;
+      border: 1px solid #fecdd3;
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-size: 8pt;
+      font-weight: 600;
+      margin: 2px 3px 2px 0;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 8pt;
+    }
+    .badge-blue { background-color: #e0f2fe; color: #0369a1; }
+    .badge-purple { background-color: #f3e8ff; color: #7e22ce; }
+    .badge-amber { background-color: #fef3c7; color: #92400e; }
+
+    /* Workflow Diagram Box */
+    .flow-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 12px 0;
+      font-family: monospace;
+      font-size: 8.5pt;
+      line-height: 1.4;
+      color: #334155;
+      page-break-inside: avoid;
+    }
+
+    ul, ol {
+      margin: 0 0 10px 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+
+    /* Footer text */
+    .doc-footer {
+      margin-top: 30px;
+      border-top: 1px solid #cbd5e1;
+      padding-top: 10px;
+      font-size: 8pt;
+      color: #64748b;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DOCUMENT HEADER -->
+  <div class="doc-header">
+    <div class="brand-badge">SECS v2.3</div>
+    <h1>School-Based Exam Control System</h1>
+    <p class="subtitle">Comprehensive Operational User Manual & Guide for Markers, KP Moderators and HODs</p>
+    <p style="font-size: 8.5pt; color: #64748b; margin-top: 4px;">
+      Aligned with Standardized Primary School Paper 1 Assessment Protocols | 100% Offline & Client-Side
+    </p>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="callout callout-info no-break" style="margin-bottom: 18px;">
+    <h3 style="margin-top: 0; color: #0284c7;">Table of Contents</h3>
+    <table style="margin: 0; font-size: 8.5pt; border: none;">
+      <tr style="background: none;"><td style="border: none; padding: 2px 4px;"><strong>1. System Overview & Quick Start</strong></td><td style="border: none; padding: 2px 4px;">Launching, Architecture & Security Passcodes</td></tr>
+      <tr style="background: none;"><td style="border: none; padding: 2px 4px;"><strong>2. Marker Operational Guide</strong></td><td style="border: none; padding: 2px 4px;">Login, Cohort & Class Tracking, Score Confirmation Modal & Feedback Taxonomy</td></tr>
+      <tr style="background: none;"><td style="border: none; padding: 2px 4px;"><strong>3. HOD & Key Personnel Guide</strong></td><td style="border: none; padding: 2px 4px;">Multi-Cohort Registry, Roster Setup, Moderation, Auto-Save Beacon & Reports</td></tr>
+      <tr style="background: none;"><td style="border: none; padding: 2px 4px;"><strong>4. Frequently Asked Questions (FAQ)</strong></td><td style="border: none; padding: 2px 4px;">Multi-class Scalability, Laptop Transfer & Excel Encoding Protection</td></tr>
+    </table>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 1. OVERVIEW & QUICK START                                                 -->
+  <!-- ========================================================================= -->
+  <h2>1. System Overview & Quick Start</h2>
+  <p>
+    The <strong>School-Based Exam Control System (SECS)</strong> is an offline, client-side web application designed specifically for primary school Paper 1 (Writing) marking. It completely eliminates error-prone shared spreadsheets, version conflicts, accidental formula overrides, and clerical calculation errors while safeguarding student data privacy under the Public Sector (Data Protection) framework.
+  </p>
+
+  <h3>1.1 Launching the System</h3>
+  <ol>
+    <li>Navigate to the system folder: <code>school-exam-control-system</code>.</li>
+    <li>Double-click <strong><code>start_secs.bat</code></strong> (or right-click <strong><code>index.html</code></strong> &rarr; Open with Microsoft Edge or Google Chrome).</li>
+    <li>The application runs completely offline in your browser. <strong>No internet connection, web server, or software installation is required.</strong></li>
+  </ol>
+
+  <h3>1.2 Role Access & Security Matrix</h3>
+  <p>To preserve examination segregation of duties, the system enforces distinct security tiers:</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 22%;">Portal Role</th>
+        <th style="width: 18%;">Credential Type</th>
+        <th style="width: 38%;">Primary Capabilities</th>
+        <th style="width: 22%;">Data Privacy Safeguard</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Exam Marker</strong></td>
+        <td>Paper Marker Passcode<br><small style="color:#64748b;">(Customized per paper)</small></td>
+        <td>Select target Exam Paper, rapid score entry with Score Confirmation Modal, Green/Pink qualitative feedback tags, personal and class marking progress bars.</td>
+        <td>Strictly shielded: Cannot view peer markers' scores, moderation deltas, or cohort-wide statistics.</td>
+      </tr>
+      <tr>
+        <td><strong>KP Moderator (Senior Teacher / LH)</strong></td>
+        <td>Paper Marker Passcode + <strong>KP Authorization PIN / OTP</strong><br><small style="color:#0284c7;">(2-Step Verification)</small></td>
+        <td>Standard marking capabilities + direct access to the <strong>⭐ KP Moderation & Script Sampling Hub</strong> within the Marker Portal for standardisation sampling and score moderation after secondary PIN verification.</td>
+        <td>Shielded from altering rubric presets or deleting cohorts; moderation audit trail recorded under their designated marker profile.</td>
+      </tr>
+      <tr>
+        <td><strong>HOD / Exam Lead</strong></td>
+        <td>HOD Master Passcode<br><small style="color:#dc2626;">(Confidential to HOD)</small></td>
+        <td>Multi-Exam Registry (P3–P6), Roster import (CSV with Chinese characters), rubric configuration, live cohort consolidation, sample check audit & moderation, 1-click marking freeze, auto-save exit guard, item analysis, passcode/PIN management, and differentiated exports.</td>
+        <td>Full cohort oversight, permanent initial score retention, variance logging, and marker calibration analytics.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ========================================================================= -->
+  <!-- 2. MARKER OPERATIONAL GUIDE                                               -->
+  <!-- ========================================================================= -->
+  <div class="page-break"></div>
+  <h2>2. Marker Operational Guide (For Exam Markers)</h2>
+  
+  <p>
+    The Marker Portal is streamlined for rapid, distraction-free score entry while grading physical hardcopy composition scripts.
+  </p>
+
+  <div class="flow-box">
+    [1] Login (Paper Marker Passcode) ──► [2] Select Target Exam Paper & Marker Code<br>
+    [2B] KP 2-Step PIN / OTP (If KP Moderator Selected) ──► [3] Select Class Bundle<br>
+    [4] Check Real-Time Class Progress Card ──► [5] Enter Content & Language Scores<br>
+    [6] Tag Authentic Feedback (🟢 Green Strengths & 🔴 Pink Gaps)<br>
+    [7] Click "💾 Save & Next" ──► [8] Verify Score Confirmation Modal (Enter ↵)
+  </div>
+
+  <h3>2.1 Real-Time Marked Script Tracking (Cohort & Class Level)</h3>
+  <p>
+    Markers have immediate, real-time visibility over their grading progress across three levels:
+  </p>
+  <ul>
+    <li><strong>Top Header Badges</strong>:
+      <ul>
+        <li><span class="badge badge-blue">👥 Cohort Marked</span>: Shows total cohort completion progress, e.g. <code>150/200 marked (75.0%)</code>.</li>
+        <li><span class="badge badge-blue">🏫 Class Marked</span>: Shows the selected class bundle's progress, e.g. <code>24/28 marked (85.7%)</code>.</li>
+        <li><span class="badge badge-blue">📝 My Marked</span>: Shows your personal cumulative marked count across all assigned classes.</li>
+      </ul>
+    </li>
+    <li><strong>Dropdown Live Annotations</strong>: When selecting a class in the dropdown, every class option displays its live progress tally (e.g., <code>Humility 1 (Primary 4.1) [24/28 marked]</code>).</li>
+    <li><strong>Live Class Progress Card (Left Panel)</strong>:
+      <ul>
+        <li>Animated progress bar showing the exact percentage of scripts completed for the active class.</li>
+        <li><strong>Physical Stack Remaining Counter</strong>: Displays exactly how many hardcopy papers remain in your physical stack (e.g., <code>4 papers remaining in physical bundle</code>), eliminating manual paper recounting.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>2.2 Locating Physical Scripts</h3>
+  <ol>
+    <li>Choose your filtering view: <strong>Form Class</strong> (e.g. <code>Humility 1 (Primary 4.1)</code>) or <strong>Mother Tongue Class</strong> (e.g. <code>4MT-1</code>).</li>
+    <li>Select the class bundle matching the physical stack in front of you.</li>
+    <li>Use the <strong>Instant Bilingual Search Bar</strong> to locate any candidate immediately by typing:
+      <ul>
+        <li>Register Number (e.g., <code>5</code> or <code>#05</code>)</li>
+        <li>English Name (e.g., <code>Wei Ting</code> or <code>Tan</code>)</li>
+        <li>Chinese Characters (e.g., <code>陈</code> or <code>韦廷</code>)</li>
+        <li>Script ID (e.g., <code>SC-005</code>)</li>
+      </ul>
+    </li>
+    <li>Click on the student card in the roster to open their score entry drawer.</li>
+  </ol>
+
+  <h3>2.3 Scoring & Boundary Guards</h3>
+  <ul>
+    <li><strong>Content Mark</strong>: Enter marks awarded for plot development, idea elaboration, and theme relevance.</li>
+    <li><strong>Language Mark</strong>: Enter marks awarded for vocabulary, sentence variation, paragraphing, and mechanics.</li>
+    <li><strong>Automatic Sum & Percentage</strong>: The system calculates the total and percentage instantly upon keystroke.</li>
+    <li><strong>Real-Time Input Guard</strong>: If a mark exceeds the prescribed rubric maximum (e.g., entering <code>9</code> when Content max is <code>7</code>), the field flashes red with an alert blocking erroneous entry.</li>
+  </ul>
+
+  <h3>2.4 Authentic Qualitative Feedback Tagging (Content vs Language)</h3>
+  <p>
+    Feedback descriptors are strictly aligned with standardized Paper 1 (Writing) rubrics, divided into <strong>Content</strong> and <strong>Language</strong> criteria, and color-coded for intuitive selection:
+  </p>
+  <ul>
+    <li><strong style="color: #065f46;">🟢 Green Descriptors (写作亮点与优势 / Writing Strengths)</strong>: Highlight commendable techniques and authentic literary merit.</li>
+    <li><strong style="color: #9f1239;">🔴 Pink Descriptors (常见失分点与学习短板 / Common Mistakes & Gaps)</strong>: Identify diagnostic learning gaps for subsequent classroom remediation.</li>
+  </ul>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Criterion</th>
+        <th style="width: 37%; color: #065f46;">🟢 Writing Strengths (Highlights)</th>
+        <th style="width: 38%; color: #9f1239;">🔴 Common Mistakes & Weaknesses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Content Evaluation<br><span style="color:#64748b; font-size:8pt;">内容评价与反馈</span></strong></td>
+        <td>
+          <span class="pill-green">紧扣图意或题目</span>
+          <span class="pill-green">结构清楚</span>
+          <span class="pill-green">内容生动</span>
+          <span class="pill-green">故事精彩</span>
+          <span class="pill-green">详略写分明</span>
+          <span class="pill-green">事件结果合理</span>
+          <span class="pill-green">结尾扣题</span>
+          <span class="pill-green">立意积极深刻</span>
+          <span class="pill-green">描写细腻生动</span>
+          <span class="pill-green">过渡自然</span>
+          <span class="pill-green">内容完整</span>
+        </td>
+        <td>
+          <span class="pill-pink">离题</span>
+          <span class="pill-pink">偏题</span>
+          <span class="pill-pink">内容不完整</span>
+          <span class="pill-pink">内容平淡</span>
+          <span class="pill-pink">事件交代不清楚</span>
+          <span class="pill-pink">事件结果不合理</span>
+          <span class="pill-pink">事件结果不完整</span>
+          <span class="pill-pink">结尾没点题</span>
+          <span class="pill-pink">详略不当</span>
+          <span class="pill-pink">缺乏心理与细节描写</span>
+          <span class="pill-pink">结构凌乱</span>
+          <span class="pill-pink">分段不清</span>
+          <span class="pill-pink">篇幅不足</span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>2. Language Evaluation<br><span style="color:#64748b; font-size:8pt;">语言与表达评价与反馈</span></strong></td>
+        <td>
+          <span class="pill-green">词汇丰富</span>
+          <span class="pill-green">句式有变化</span>
+          <span class="pill-green">好词好句丰富</span>
+          <span class="pill-green">标点准确·字迹工整</span>
+          <span class="pill-green">句式通顺</span>
+        </td>
+        <td>
+          <span class="pill-pink">人称错误</span>
+          <span class="pill-pink">句式重复</span>
+          <span class="pill-pink">句式语病多</span>
+          <span class="pill-pink">用词不精准</span>
+          <span class="pill-pink">搭配不当</span>
+          <span class="pill-pink">受方言或英文思维影响</span>
+          <span class="pill-pink">标点符号错误</span>
+          <span class="pill-pink">错别字较多</span>
+          <span class="pill-pink">句式不通顺</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>2.5 Random Pick Protocol & Mandatory Candidate Verification Gate</h3>
+  <div class="callout callout-warning">
+    <strong>🛡️ Mandatory Physical Script Verification Gate (Zero Wrong-Candidate Scoring)</strong>:
+    In alignment with Singapore school grading realities, markers pick physical examination booklets randomly from bundles. To eliminate the risk of markers keying marks into the wrong candidate's record:
+    <ul>
+      <li><strong>Input Shielding</strong>: Whenever an unmarked student is selected, scoring inputs (Content, Language, Feedback Tags, Remarks, and Save) are completely shielded and non-clickable (<code>opacity-40 pointer-events-none</code>).</li>
+      <li><strong>Physical Verification Gate</strong>: A prominent amber banner displays: <em>"⚠️ 1. Verify Physical Script Booklet Cover: Does this digital candidate match the physical paper booklet in your hand?"</em> with Candidate Name (English &amp; Chinese), Class, Reg No, and Script ID.</li>
+      <li><strong>Explicit Marker Confirmation</strong>: The marker must click <strong><code>[✓ Yes, Booklet Matches Candidate (Unlock Marking)]</code></strong>. The badge turns green (<code>✓ Verified Candidate Booklet</code>) and automatically focuses the cursor on the Content mark input field.</li>
+      <li><strong>Permanent Disable of Auto-Advance</strong>: The system strictly refrains from auto-pushing the next candidate's name onto the screen.</li>
+    </ul>
+  </div>
+
+  <h3>2.6 Pre-Advance Score Confirmation Dialog & Post-Save Booklet Picker</h3>
+  <p>
+    When the marker completes grading and clicks the blue <strong><code>💾 Save & Confirm Score</code></strong> button:
+  </p>
+  <ul>
+    <li><strong>Score Confirmation Summary</strong>: Displays Candidate Name, Class, Script ID, Content score, Language score, Total, Percentage, and chosen qualitative tags.</li>
+    <li><strong>Keyboard Shortcut: Enter ↵ to Confirm</strong>: Simply press <strong><code>Enter ↵</code></strong> on your keyboard to commit the score, or <strong><code>Escape (Esc)</code></strong> to amend.</li>
+    <li><strong>Post-Save "Pick Next Physical Script from Pile" Card</strong>: Upon saving, SECS transitions to the Random Pick card. The marker glances at the physical cover of the next booklet in their pile and types the student's name, class, register number, or Script ID into the instant search bar to immediately open that candidate's verification gate.</li>
+    <li><strong>10-Minute Amendment Window</strong>: The 10-minute amendment grace window starts strictly only after score confirmation.</li>
+  </ul>
+
+  <h3>2.7 Understanding Marking Lock (Read-Only Mode)</h3>
+  <div class="callout callout-warning">
+    <strong>🔒 Read-Only Marking Freeze</strong>:
+    When the HOD locks the marking session after the deadline:
+    <ul>
+      <li>An amber banner displays: <em>"🔒 Marking is currently FROZEN by HOD. The system is in READ-ONLY mode for review."</em></li>
+      <li>Score inputs, feedback tags, and the Save button are disabled to prevent inadvertent alterations.</li>
+      <li>Markers can still view and review all their graded scripts, marks, and remarks.</li>
+    </ul>
+  </div>
+
+  <h3>2.8 Key Personnel (KP) Moderation &amp; Script Sampling Hub</h3>
+  <p>
+    Teachers designated as <strong>Key Personnel (KP)</strong> (e.g. Senior Teachers, Subject Heads, Level Heads) have direct access to standardisation and moderation tools directly from their Marker Portal:
+  </p>
+  <ul>
+    <li><strong>Dual-Tab Navigation</strong>: Authorized KP markers see a navigation bar at the top with two dedicated tabs:
+      <ul>
+        <li><code>✏️ My Marking Entry</code>: Standard physical script scoring interface for their assigned bundle.</li>
+        <li><code>⭐ KP Moderation &amp; Script Sampling Hub</code>: Full paper-wide moderation workspace, equipped with a live badge showing total recommended scripts awaiting check.</li>
+      </ul>
+    </li>
+    <li><strong>View All Scripts Across All Markers</strong>: KP moderators can inspect every candidate script registered under the active paper, including unmarked scripts, marked scripts, and previously moderated scripts across all teachers.</li>
+    <li><strong>Intelligent Standardisation Sampling Recommendations</strong>: One-click filter pills instantly identify scripts meeting official quality audit triggers:
+      <ul>
+        <li><span class="badge badge-purple">🎯 Recommended Combined</span>: Prioritised composite queue encompassing all critical quality triggers.</li>
+        <li><span class="badge badge-amber">⚖️ Borderline Pass (48% - 52%)</span>: Scripts hovering immediately above or below the 50% passing threshold.</li>
+        <li><span class="badge badge-blue">🌟 Borderline Quality (78% - 82%)</span>: Scripts nearing distinction/quality cut-off.</li>
+        <li><span class="badge" style="background:#fee2e2; color:#b91c1c;">⚡ Content vs Language Discrepancy</span>: Unbalanced scripts with &gt;20% variance between Content and Language criteria.</li>
+        <li><span class="badge badge-green">🎲 Random 10% Sample</span>: Representative cross-section for general standardization audit.</li>
+        <li><span class="badge badge-rose">🚨 Pupils-at-Risk (PAR &lt; 50%)</span>: Rapid identification of candidates requiring learning support.</li>
+        <li><span class="badge" style="background:#f1f5f9; color:#475569;">⏳ Unmarked Scripts</span>: Immediate visibility into unentered scripts to monitor cohort pace.</li>
+      </ul>
+    </li>
+    <li><strong>Side-by-Side Moderation Drawer</strong>:
+      <ul>
+        <li><strong>Original Marker Evidence</strong>: Displays First Marker Code, initial Content score, Language score, Total, Percentage, awarded Feedback Tags (Green/Pink), and Teacher Notes.</li>
+        <li><strong>Moderation Controls</strong>: KP enters Moderated Content and Language scores. The system calculates real-time <strong>Variance Delta (&plusmn;&Delta;)</strong> with color cues (green for agreement, amber/red for adjustments).</li>
+        <li><strong>Moderation Rationale</strong>: Mandatory justification log ensures transparent audit trails aligned with standardisation meeting guidelines.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- ========================================================================= -->
+  <!-- 3. HOD & EXAM LEAD OPERATIONAL GUIDE                                      -->
+  <!-- ========================================================================= -->
+  <div class="page-break"></div>
+  <h2>3. HOD &amp; Key Personnel Operational Guide</h2>
+
+  <p>
+    As HOD or Examination Lead (authenticated via confidential <strong>HOD Master Passcode</strong>), you have complete administrative control over multiple examination levels, active papers, archived papers, cohort class bundles, rubrics, sample check moderation, and official reports.
+  </p>
+
+  <h3>3.1 HOD Authentication & Executive Paper Control Deck</h3>
+  <ul>
+    <li><strong>Executive Paper Control Deck</strong>: Pinned permanently across the top of the HOD interface:
+      <ul>
+        <li><strong>Active Paper Metadata</strong>: Level, Subject, Component, Academic Year, and Rubric Max bounds (e.g., <code>15 Max (7C + 8L)</code>).</li>
+        <li><strong>Status Badges</strong>: Real-time indicators for <span class="badge badge-green">🟢 Active Marking</span>, <span class="badge badge-amber">🔒 Marking Frozen</span>, and <span class="badge" style="background:#f5f3ff; color:#5b21b6; border:1px solid #ddd6fe;">📦 Archived Paper</span>.</li>
+        <li><strong>Live Candidature & Marked Tracking</strong>: Displays total candidate count and live percentage completion (e.g., <code>150 / 200 (75%)</code>).</li>
+        <li><strong>Quick Actions</strong>: 1-click access to <strong>📁 Papers & Archives</strong>, <strong>✏️ Edit Paper Settings</strong>, <strong>🔒 Lock/Unlock Marking</strong>, and <strong>📦 Archive Paper</strong>.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>3.2 Dedicated "Register New Paper" Tab & Exam Studio</h3>
+  <p>
+    To ensure a distraction-free administration experience, new paper setup is housed in a <strong>dedicated top navigation tab</strong> (<code>➕ Register New Paper</code>), separated from ongoing marking cohorts in <strong>📁 Exam Studio</strong>:
+  </p>
+  <ul>
+    <li><strong>Dedicated Tab: ➕ Register New Paper (<code>tabRegisterPaper</code>)</strong>:
+      <ul>
+        <li>A streamlined 5-step registration wizard: (1) Paper Title &amp; Term, (2) Assessment Level &amp; Rubric Presets, (3) Candidate Roster Population (Clean Roster or 1-Click Copy from existing paper), (4) Primary Marker Allocation, and (5) Multi-Device Shared Sync.</li>
+        <li>Clicking <em>"🚀 Register &amp; Launch Paper"</em> creates the paper, auto-publishes it to the shared drive manifest, and automatically transitions to Exam Studio.</li>
+      </ul>
+    </li>
+    <li><strong>Left Rail — Paper Navigator &amp; Archived Papers (Exam Studio)</strong>:
+      <ul>
+        <li><strong>Active Papers List</strong>: Interactive cards displaying candidate tallies, marked progress bars, and marker team size. Click <em>"Switch To"</em> to instantly switch paper context. Supports 1-click archiving, duplicating, and editing, with a direct shortcut to the Register New Paper tab.</li>
+        <li><strong>Archived Papers</strong>: Safely stores concluded exam cycles in read-only freeze, strictly shielded from active roster selectors. Retains complete candidate scores and audit logs with 1-click restoration to active marking anytime.</li>
+      </ul>
+    </li>
+    <li><strong>Right Rail — Active Paper Setup & Cohort Workspace</strong>:
+      <ul>
+        <li><strong>Step 1: Paper Specifications</strong>: Configure Examination Title, Level, Subject, and Rubric Presets (e.g., P3/P4 MT 7C+8L=15 vs P5/P6 MT 20C+20L=40).</li>
+        <li><strong>Step 2: Candidate Roster Management</strong>: Candidate table with class-level dropdown filtering (<code>rosterClassFilter</code>), real-time search (by Register No, English/Chinese name, Script ID), 1-click cross-paper roster cloning, and bilingual CSV roster upload with UTF-8 BOM protection.</li>
+        <li><strong>Step 3: Marker Team & KP Moderation</strong>: Allocate markers (M01-M20) and check <code>KP Moderator</code> to delegate sample check and moderation rights without sharing the master HOD password.</li>
+        <li><strong>Step 4: Paper Security & Passcodes</strong>: Set paper-specific marker passcode (isolating cohorts) and configure the confidential KP Moderator Authorization PIN / OTP (e.g. <code>MOD88</code>) with an optional 1-click random PIN generator. Both passcodes are prominently summarized on each paper card in the Papers Hub.</li>
+        <li><strong>Class & Cohort Bundles (Bottom Section)</strong>: Visual card grid for all Form Classes and Mother Tongue Banded Classes in this paper. Supports <code>✏️ Rename Class</code>, <code>🗑️ Delete Class Bundle</code>, <code>+ Add New Class Bundle</code>, and individual <code>+ Pupil</code> additions.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="callout callout-info" style="margin-top: 10px;">
+    <strong>📋 How to Add Rosters & Class Bundles to Different Exam Papers (4 Seamless Workflows):</strong>
+    <ol style="margin-top: 6px;">
+      <li><strong>Method 1: 1-Click "Copy from Paper" (Cross-Paper Roster / Class Clone) — [RECOMMENDED]</strong>: In the Right Rail Step 2, click <code>📋 Copy from Paper</code>. Select any source paper, choose <strong>"All Classes"</strong> or a specific <strong>Form Class / MT Class</strong>, select Append or Replace mode, and click <code>📋 Copy Pupils Now</code>. Candidates are imported with clean, unmarked status and sequential script numbers without re-uploading spreadsheets.</li>
+      <li><strong>Method 2: Inherit Roster upon Registering a New Paper</strong>: In the Left Rail (Register New Paper tab), select <code>Student Roster & Classes: Copy roster from [Existing Paper]</code>. The new paper is immediately created with the full cohort and class structure ready for marking.</li>
+      <li><strong>Method 3: Switch Active Paper & Add Locally</strong>: Switch to the desired paper via the Left Rail or top Exam Selector, and use <code>+ Add New Class Bundle</code>, <code>+ Add Student</code>, or <code>📥 Upload Roster</code> directly in the Right Rail.</li>
+      <li><strong>Method 4: Duplicate an Entire Exam Paper</strong>: In the Left Rail or Manage Registry, click <code>📋 Duplicate</code> to clone the entire paper (cohort, rubric, and markers) with scores reset to unmarked.</li>
+    </ol>
+  </div>
+
+  <h3>3.3 Live Monitoring: Master Consolidation (Tab 2)</h3>
+  <ul>
+    <li><strong>Dynamic Tracking Banner</strong>: Top banner shows real-time cohort statistics: <strong><code>Total Marked: X/Y (Z%)</code></strong>, <strong><code>Unmarked: N</code></strong>, and <strong><code>Moderated: M</code></strong>.</li>
+    <li><strong>Contextual Subgroup Progress</strong>: When filtering by a specific class or marker, the banner dynamically highlights that subgroup's completion (e.g., <code>Selected Class: 4 Harmony [24/28 marked, 4 remaining]</code>).</li>
+    <li><strong>Filter Dropdown Counts</strong>: All filter dropdowns annotate each selection with real-time marked counts.</li>
+    <li><strong>Dual-Mark & Moderator Code Display</strong>: Moderated scripts prominently display the final mark alongside an audit badge: <code>14 (Orig: 13, +1)</code>, and both original marker and moderator code (e.g., <code>Mod: M01</code> or <code>Mod: HOD</code>) are clearly shown for total traceability.</li>
+  </ul>
+
+  <h3>3.4 Quality Assurance: HOD Sample Check & Moderation (Tab 3)</h3>
+  <div class="callout callout-success">
+    <strong>Standardised Examination Moderation Protocol</strong>:
+    <ol style="margin-top: 6px;">
+      <li><strong>Smart Sampling Filters</strong>: Automatically flags target scripts: Borderline Pass (48% - 52%), Borderline Quality Pass (78% - 82%), Content/Language Discrepancy, and Random 10% Sample.</li>
+      <li><strong>Side-by-Side Moderation Drawer</strong>: Inspect the first marker's scores, tags, and qualitative comments, enter moderated scores, and observe the live variance delta ($\pm\Delta$). Both First Marker code and Moderator Code are attributed in the table.</li>
+      <li><strong>Indelible Historical Retention</strong>: Applying moderation updates the final score while <strong>permanently retaining the first marker's original score</strong> and moderation rationale for audit defense.</li>
+    </ol>
+  </div>
+
+  <h3>3.5 Independent Per-Paper Marking Lock / Read-Only Freeze Control</h3>
+  <p>
+    SECS provides <strong>granular, per-paper marking control</strong>, allowing the HOD to freeze or open individual assessment papers independently:
+  </p>
+  <ul>
+    <li><strong>Independent Paper Scheduling</strong>: The HOD can freeze Primary 4 when grading concludes, while keeping Primary 5 actively open for marking. Different assessment levels never interfere with each other.</li>
+    <li><strong>4 Visual Paper Badges</strong>: <span class="badge badge-emerald">🟢 Active Marking</span>, <span class="badge badge-amber">🔒 Marking Frozen</span>, <span class="badge badge-amber">⚠️ Draft (Unreleased)</span>, and <span class="badge badge-slate">📦 Archived</span>.</li>
+    <li><strong>1-Click Freeze Toggles</strong>: Toggle freeze directly on each paper card in the Left Rail (<code>🔒 Freeze</code> / <code>🔓 Open</code>) or via the header button (<code>🔒 Freeze Marking</code>) above the active workspace.</li>
+    <li><strong>Instant Shared Folder Broadcast</strong>: Lock state updates broadcast to <code>exam_master_${examId}.json</code> within seconds, placing markers into read-only review mode automatically.</li>
+  </ul>
+
+  <h3>3.6 Item Analysis & Marker Calibration (Tabs 4 & 5)</h3>
+  <ul>
+    <li><strong>Tab 4 (Item Analysis)</strong>: Cohort Mean, Median, Standard Deviation ($\sigma$), Min/Max spread, Quality Pass Rate ($\ge 80\%$), Pass Rate ($\ge 50\%$), and Pupils-at-Risk (PAR $< 50\%$).</li>
+    <li><strong>Tab 5 (Marker Calibration)</strong>: Evaluates inter-rater reliability across all markers. Identifies grading tendencies: Calibrated ($\pm 1.5$ marks), Lenient/Dove, Strict/Hawk, and tracks HOD sample checks and moderation deltas.</li>
+  </ul>
+
+  <!-- ========================================================================= -->
+  <!-- 3.7 DIFFERENTIATED EXPORTS                                                -->
+  <!-- ========================================================================= -->
+  <div class="page-break"></div>
+  <h3>3.7 Differentiated & Configurable Reports (Tab 6: Export Hub)</h3>
+  <p>
+    SECS generates tailored reports designed for specific stakeholders:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Feature</th>
+        <th style="width: 37%;">Option A: Class Teacher Diagnostic Report</th>
+        <th style="width: 38%;">Option B: Comprehensive HOD Audit Report</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Target Audience</strong></td>
+        <td>Form Teachers, Subject Teachers, Level Teachers</td>
+        <td>HOD, Year Head, Vice-Principal, Principal</td>
+      </tr>
+      <tr>
+        <td><strong>Scope</strong></td>
+        <td>Single Class (Form or MT Banded)</td>
+        <td>Full Cohort or Filtered Class</td>
+      </tr>
+      <tr>
+        <td><strong>Marker Reliability Math</strong></td>
+        <td><strong>Omitted</strong> (Keeps report clean & pedagogically focused)</td>
+        <td><strong>Included</strong> (Marker calibration, Hawk/Dove index, moderation audit)</td>
+      </tr>
+      <tr>
+        <td><strong>Pupil Roster</strong></td>
+        <td>Includes Register No, English Name, Chinese Name, Initial Mark, Final Mark, Delta ($\Delta$), Tags, and Remarks</td>
+        <td>Full cohort roster with complete moderation audit trails</td>
+      </tr>
+      <tr>
+        <td><strong>Pedagogical Interventions</strong></td>
+        <td>Action plan for Pupils-at-Risk ($< 50\%$) and Quality Pass Bridging ($65\% - 79\%$)</td>
+        <td>Department-wide strategic recommendations & grade distribution</td>
+      </tr>
+      <tr>
+        <td><strong>Configurability</strong></td>
+        <td>Standardized 1-click generation</td>
+        <td><strong>8 Interactive Checkboxes</strong> to customize exact report sections</td>
+      </tr>
+      <tr>
+        <td><strong>File Formats</strong></td>
+        <td>Excel (<code>.xlsx</code>) and Microsoft Word (<code>.doc</code>)</td>
+        <td>Excel (<code>.xlsx</code>) and Microsoft Word (<code>.doc</code>)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3.8 Key Personnel (KP) Moderation Rights</h3>
+  <ul>
+    <li><strong>Decentralized Standardization</strong>: HODs can delegate sample checking and moderation privileges to senior teachers or Level Heads without sharing the elevated master HOD passcode.</li>
+    <li><strong>1-Click Assignment</strong>: In <strong>Tab 1: Exam Studio &amp; Cohort Manager</strong> (Step 3: Marker Allocation), check the <code>KP Moderator</code> box next to any marker.</li>
+    <li><strong>Dedicated Moderation Hub</strong>: When the marker logs in with their standard passcode, they receive a <span class="badge badge-amber">⭐ KP Moderator</span> badge and immediate access to the <strong>⭐ KP Moderation &amp; Script Sampling Hub</strong>.</li>
+  </ul>
+
+  <h3>3.9 Live Auto-Save Beacon & Exit Verification Guard</h3>
+  <ul>
+    <li><strong>Continuous Auto-Save Pulse</strong>: A live pulsing badge in the top navigation bar displays the exact time of the latest auto-save (e.g. <code>Auto-saved 14:02:15</code>).</li>
+    <li><strong>Exit Verification Guard</strong>: Clicking the Lock / Exit button triggers an exit confirmation modal summarizing all saved cohorts, candidature counts, and marked scripts, with a 1-click option to download a complete JSON database backup file.</li>
+  </ul>
+
+  <h3>3.10 Database Backup, Transfer & Restore</h3>
+  <ul>
+    <li>All exam data is maintained in the browser's local storage sandbox.</li>
+    <li><strong>Backup / Export</strong>: Click <strong><code>💾 Backup DB (JSON)</code></strong> to save a snapshot named <code>SECS_Exam_Database_Backup_YYYY-MM-DD.json</code>.</li>
+    <li><strong>Restore / Transfer to Another Laptop</strong>:
+      <ol>
+        <li>Copy the backup JSON file and the <code>school-exam-control-system</code> folder to the new laptop.</li>
+        <li>Open SECS in Edge or Chrome.</li>
+        <li>Click <strong><code>📂 Restore DB (JSON)</code></strong> and choose your backup file. All students, scores, tags, and settings are restored in seconds.</li>
+      </ol>
+    </li>
+  </ul>
+
+  <h3>3.11 Multi-Paper & Multi-Marker Shared Folder Live-Sync Guide (Platinum Standard)</h3>
+  <div class="callout callout-info">
+    <strong>📁 Concurrent Multi-Device Marking via School Shared Drive (e.g. S:\...):</strong>
+    <p style="margin-top: 6px; font-size: 10.5pt;">
+      SECS features a <strong>Decoupled Shared Folder Live-Sync Engine</strong> using Microsoft Edge's native File System Access API. 
+      Each teacher auto-saves to their own file (<code>secs_sync/marker_${examId}_${markerCode}.json</code>), and moderators save to partitioned files (<code>secs_sync/moderation_${modBy}.json</code>), preventing file-locking collisions even when 20+ teachers and multiple moderators mark simultaneously across multiple papers.
+    </p>
+    <ul style="margin-top: 6px;">
+      <li><strong>HOD Setup & Automatic Sync</strong>: Place the SECS folder on the school shared drive (<code>S:\Departments\...</code>). Click <code>📁 Link Shared Folder</code> in the top navigation bar. Any change made to student rosters, class bundles, or rubrics automatically synchronizes to the exam master file in the background.</li>
+      <li><strong>Marker Workflow</strong>: Markers open <code>index.html</code> from the shared folder, select their target assessment paper (e.g. P4 or P5), enter their Marker Code and PIN, and grade. Marks auto-save silently to their individual JSON file.</li>
+      <li><strong>KP Moderator Live Queue & Partitioned Moderation</strong>: Multiple Key Personnel and the HOD moderate concurrently without conflicts, auto-saving to separate <code>moderation_${modBy}.json</code> files in real time.</li>
+      <li><strong>Serial Write Queue &amp; 5-Tier Exponential Retry Backoff</strong>: All atomic disk writes are processed via an asynchronous promise queue (<code>enqueueWrite</code>) with a 5-tier exponential retry loop (150ms-2400ms + randomized jitter), eliminating Windows SMB file contention and sharing violations (<code>STATUS_SHARING_VIOLATION</code>).</li>
+      <li><strong>Self-Healing Snapshot Push &amp; Pending Queue</strong>: Marker score submissions construct complete snapshots from memory and queue delayed writes in <code>pendingPushes</code>, guaranteeing zero lost marks during transient network dips.</li>
+      <li><strong>Adaptive 3.5s Polling &amp; Zero-Lag Typing Throttle</strong>: Background polling pauses while teachers type scores or notes, eliminating input lag while reducing shared drive I/O traffic by 45%.</li>
+      <li><strong>Autonomous 12s Watchdog &amp; 1-Click Reconnect</strong>: An independent 12-second watchdog auto-recovers background sync loops, while 1-click permission prompts allow instant reconnects without file-dialog friction.</li>
+      <li><strong>Zero Shared Folder Maintenance</strong>: Archiving papers automatically hides them from active queues while preserving complete historical files on disk. <strong>No manual file deletion is ever needed.</strong></li>
+    </ul>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 4. FAQ & TROUBLESHOOTING                                                  -->
+  <!-- ========================================================================= -->
+  <div class="page-break"></div>
+  <h2>4. Frequently Asked Questions (FAQ)</h2>
+
+  <h4>Q1: Can we use SECS for more than 5 form classes?</h4>
+  <p>
+    <strong>Yes, absolutely.</strong> SECS dynamically adapts to any number of classes (e.g. 6, 8, 10, 15, or more classes). The roster, dropdowns, and comparison tables generate automatically based on the class names present in your CSV file.
+  </p>
+
+  <h4>Q2: Can I move the system to a USB thumb drive or my Desktop?</h4>
+  <p>
+    <strong>Yes.</strong> You must copy or move the <strong>entire <code>school-exam-control-system</code> folder</strong>, because <code>index.html</code> references scripts in the <code>js/</code> folder. Alternatively, you can create a shortcut to <code>start_secs.bat</code> on your Desktop without moving any files.
+  </p>
+
+  <h4>Q3: Why do Chinese characters display properly without corrupted symbols (mojibake)?</h4>
+  <p>
+    SECS includes explicit <strong>UTF-8 Byte Order Marks (BOM, <code>﻿</code>)</strong> and Microsoft Word HTML headers across all CSV, Excel, and Word exports. This guarantees that Chinese characters (如: <code>陈韦廷</code>, <code>蔡恩熙</code>) render flawlessly in Microsoft Excel and Word on Windows.
+  </p>
+
+  <h4>Q4: Can markers see marks or feedback entered by other teachers?</h4>
+  <p>
+    <strong>No.</strong> The Marker Portal is strictly sandboxed. Markers only see their own assigned scripts, input controls, and personal grading history. Peer marks, cohort statistics, and moderation deltas require the confidential HOD master passcode or authorized KP moderation rights.
+  </p>
+
+  <h4>Q5: What happens if an error is found after marking has been frozen?</h4>
+  <p>
+    The HOD simply clicks <strong><code>🔓 Unlock Marking</code></strong> in the top header or paper card. The marker can then amend the score, save the change, and the HOD can re-freeze the system.
+  </p>
+
+  <h4>Q6: Can different markers mark concurrently from different laptops in a shared folder?</h4>
+  <p>
+    <strong>Yes!</strong> Using the <strong>Shared Folder Live-Sync Engine</strong>, multiple markers open <code>index.html</code> from the school shared network drive (<code>S:\</code>) on their respective laptops. Each marker auto-saves to their own file (<code>marker_${examId}_${markerCode}.json</code>), eliminating file collisions, while HOD and KP moderators view live incoming marks and score tallies in real time.
+  </p>
+
+  <h4>Q7: Do you recommend storing different papers (e.g. P4 and P5) in the same shared folder or different folders?</h4>
+  <p>
+    <strong>We strongly recommend storing them in the same shared folder</strong> (e.g. <code>S:\Departments\MotherTongue\Exam2026\</code>). SECS uses paper-isolated filenames (<code>exam_master_${examId}.json</code>, <code>marker_${examId}_${markerCode}.json</code>) and a unified manifest. Storing them in a single folder allows markers and moderators to switch between papers seamlessly without re-linking shared drives, while ensuring 100% data separation.
+  </p>
+
+  <h4>Q8: Can two papers be active at the same time?</h4>
+  <p>
+    <strong>Yes.</strong> Multiple papers can be active simultaneously (e.g. P4 Paper 1 and P5 Paper 1). Markers grading P4 and markers grading P5 can grade concurrently on their own laptops. HOD can also freeze P4 once finished, while P5 continues marking uninterrupted.
+  </p>
+
+  <h4>Q9: If an exam paper is archived, do we need to delete any files from the shared folder?</h4>
+  <p>
+    <strong>Strictly NO.</strong> Archiving automatically updates the manifest to hide the paper from active marking queues, while retaining all historical candidate records and moderation logs on disk for audit compliance. No manual file management is ever required on the shared folder.
+  </p>
+
+  <div class="doc-footer">
+    <strong>School-Based Exam Control System (SECS)</strong> | Operational User Manual (Platinum Standard)<br>
+    Designed for Singapore Primary School Paper 1 (Writing) Standards
+  </div>
+
+</body>
+</html>

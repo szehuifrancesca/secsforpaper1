@@ -58,26 +58,68 @@
         </div>
 
         <div class="text-center pt-2 space-y-1">
-          <div class="text-[11px] text-slate-400">Singapore Primary School Standardized Exam Protocol</div>
-          <div class="pt-1 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs">
-            <a href="USER_MANUAL.pdf" download="SECS_User_Manual.pdf" class="text-sky-600 hover:text-sky-800 hover:underline flex items-center gap-1 font-medium">
-              <span>📄 User Manual (PDF)</span>
-            </a>
-            <span class="text-slate-300">•</span>
-            <a href="USER_MANUAL.doc" download="SECS_User_Manual.doc" class="text-sky-600 hover:text-sky-800 hover:underline flex items-center gap-1 font-medium">
-              <span>📝 User Manual (Word)</span>
-            </a>
-            <span class="text-slate-300">•</span>
-            <a href="SECS_Marker_KP_Briefing.pptx" download="SECS_Marker_KP_Briefing.pptx" class="text-indigo-600 hover:text-indigo-800 hover:underline flex items-center gap-1 font-medium">
-              <span>📊 Briefing (PPT)</span>
-            </a>
-            <span class="text-slate-300">•</span>
-            <a href="briefing_slides.html" target="_blank" class="text-emerald-600 hover:text-emerald-800 hover:underline flex items-center gap-1 font-medium">
-              <span>🖥️ Present Slides</span>
+          <div class="text-[11px] text-slate-400">School-Based Standardized Examination Control Protocol</div>
+          <div class="pt-1 flex items-center justify-center text-xs">
+            <a href="USER_MANUAL.html" target="_blank" class="text-sky-700 hover:text-sky-900 hover:underline flex items-center gap-1 font-semibold" title="Open SECS Marker Manual">
+              <span>📖 Marker Manual</span>
             </a>
           </div>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 1B. SHARED FOLDER CONNECTION GATE MODAL (Multi-Laptop Live Sync Gate)     -->
+  <!-- ========================================================================= -->
+  <div id="sharedFolderGateModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-xs p-4 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-7 border border-slate-200">
+      <div class="text-center mb-5">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 mb-3 shadow-inner">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+          </svg>
+        </div>
+        <div class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-amber-100 text-amber-900 mb-1.5 border border-amber-200">
+          Multi-Laptop Synchronization Gate
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-slate-900">Connect to School Shared Folder</h3>
+        <p class="text-xs text-slate-500 mt-1">
+          To load the latest examination papers and synchronize marks in real time across all laptops, please select the school shared folder.
+        </p>
+      </div>
+
+      <div class="mb-5 space-y-2.5 text-xs text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-200">
+        <div class="flex items-start gap-2">
+          <span class="text-amber-600 font-bold shrink-0">1.</span>
+          <span>Ensure both laptops are accessing the <strong>exact same folder</strong> on your School Shared Network Drive (e.g. <code class="bg-slate-200 px-1 py-0.5 rounded font-mono text-[11px]">S:\Exam</code>) or Synced OneDrive.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-amber-600 font-bold shrink-0">2.</span>
+          <span>Click the button below and select the folder named:
+            <br>
+            <span class="inline-block mt-1 font-mono font-bold text-slate-900 bg-amber-100/70 border border-amber-300 px-2 py-0.5 rounded text-[11px]">
+              📁 EXAM DATA FOLDER (LINK TO THIS FOLDER)
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="space-y-2.5">
+        <button type="button" id="btnGateConnectFolder" onclick="app.handleGateConnectSharedFolder()"
+                class="w-full py-3 px-4 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2">
+          <span>📁 Select School Shared Folder (Recommended)</span>
+        </button>
+
+        <button type="button" id="btnGateContinueOffline" onclick="app.handleGateContinueOffline()"
+                class="w-full py-2.5 px-4 bg-white hover:bg-slate-100 text-slate-600 font-medium text-xs rounded-xl border border-slate-300 transition-colors cursor-pointer">
+          Continue Offline (Local Standalone Only)
+        </button>
+      </div>
+
+      <p class="text-[10px] text-slate-400 text-center mt-3">
+        Browser security requires selecting the shared folder once to grant live read/write access.
+      </p>
     </div>
   </div>
 
@@ -1100,6 +1142,7 @@
               <span id="deckSubjectBadge" class="px-2.5 py-0.5 rounded-md bg-purple-500/20 text-purple-300 text-xs font-medium border border-purple-400/30">Mother Tongue</span>
               <span id="deckComponentBadge" class="text-xs text-slate-300">Paper 1 (Writing)</span>
               <span id="deckStatusBadge" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">🟢 Active Marking</span>
+              <span id="deckPublishStatusBadge" class="hidden px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30">⚠️ Local Draft</span>
             </div>
             <h2 id="deckExamTitle" class="text-xl font-extrabold tracking-tight text-white mt-1">2026 Primary 4 Mid-Year Exam</h2>
             <div class="flex items-center gap-3 text-xs text-slate-300 pt-0.5">
@@ -1113,6 +1156,15 @@
 
           <!-- Quick Actions & Paper Switcher -->
           <div class="flex flex-wrap items-center gap-2">
+            <button id="deckQuickPublishBtn" onclick="hodApp.publishActiveExam()" class="hidden px-3 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer" title="Publish active paper to Shared Folder so markers can see it">
+              <span>📤 Publish to Shared Folder</span>
+            </button>
+            <a href="HOD_MODERATOR_VIDEO.html" target="_blank" class="px-3 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer" title="Watch HOD & Moderator Training Video with audio narration & captions">
+              <span>🎬 HOD Video Guide</span>
+            </a>
+            <a href="SECS_HOD_Moderator_Guide.pptx" download="SECS_HOD_Moderator_Guide.pptx" class="px-3 py-2 bg-indigo-750 hover:bg-indigo-650 text-white rounded-xl text-xs font-semibold transition-all border border-indigo-400/30 flex items-center gap-1.5 cursor-pointer" title="Download HOD & Moderator Presentation (.pptx) with speaker notes">
+              <span>📊 HOD PPT</span>
+            </a>
             <button onclick="hodApp.switchTab('tabPapers')" class="px-3 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer" title="Browse, create and archive examination papers">
               <span>📁 Papers & Archives</span>
             </button>
@@ -1126,6 +1178,26 @@
               <span id="deckArchiveBtnText">📦 Archive Paper</span>
             </button>
           </div>
+        </div>
+      </div>
+
+      <!-- HOD Unpublished Paper Alert Banner (Proactive Prompt) -->
+      <div id="hodUnpublishedPaperAlertBanner" class="hidden mb-6 p-4 rounded-2xl border-2 border-amber-400 bg-amber-50 text-amber-950 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm animate-pulse">
+        <div class="flex items-start md:items-center gap-3">
+          <span class="text-2xl shrink-0">⚠️</span>
+          <div>
+            <div class="font-bold text-sm text-amber-950">
+              Action Required: "<span id="unpublishedExamTitle">Active Paper</span>" is a Local Draft (Not Yet Published)!
+            </div>
+            <p class="text-xs text-amber-800 mt-0.5">
+              Markers on other laptops cannot see or mark this paper until you publish it to the School Shared Folder.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button type="button" onclick="hodApp.publishActiveExam()" class="px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer">
+            <span>📤 Publish to Shared Folder Now</span>
+          </button>
         </div>
       </div>
 
@@ -1310,6 +1382,20 @@
                 </div>
               </div>
 
+              <!-- DYNAMIC UNPUBLISHED PAPER ACTION BANNER FOR HOD -->
+              <div id="hodUnpublishedPaperBanner" class="hidden mb-4 p-4 rounded-2xl border bg-purple-50 border-purple-300 text-purple-950 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-pulse">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl shrink-0">📢</span>
+                  <div>
+                    <div class="font-extrabold text-sm text-purple-950">Active Paper is NOT Published to Shared Folder</div>
+                    <div class="text-xs text-purple-800" id="hodUnpublishedBannerText">Markers on other laptops cannot see or score this paper until published.</div>
+                  </div>
+                </div>
+                <button type="button" onclick="hodApp.publishActiveExam()" class="px-4 py-2 bg-purple-700 hover:bg-purple-800 text-white font-bold text-xs rounded-xl shadow-xs transition-colors cursor-pointer shrink-0 flex items-center gap-1.5 whitespace-nowrap">
+                  <span>📤 Publish to Shared Folder</span>
+                </button>
+              </div>
+
               <!-- ACTIVE PAPER SHARED FOLDER STATUS CARD (Two-Liner Platinum Layout) -->
               <div id="activePaperSyncStatusCard" class="rounded-2xl p-4 sm:p-5 border transition-all shadow-xs bg-emerald-50/90 border-emerald-200 space-y-3.5">
                 <!-- TOP LINER: Active Paper Identity & Primary Marking Controls -->
@@ -1332,7 +1418,7 @@
                         2026 Primary 4 Mid-Year Exam: Mother Tongue Paper 1
                       </h4>
                       <p id="activePaperSyncSub" class="text-xs text-emerald-800 font-medium mt-0.5">
-                        Marking active for scoring • Auto-polling every 2s • 14 pupils ready for markers
+                        Marking active for scoring • Auto-polling live • Live cohort sync
                       </p>
                     </div>
                   </div>
@@ -2697,55 +2783,113 @@
         </ul>
       </div>
 
-      <!-- Download Options Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
-        <!-- Word Option -->
-        <a href="USER_MANUAL.doc" download="SECS_User_Manual.doc" class="p-4 rounded-xl border border-blue-200 bg-blue-50/40 hover:bg-blue-50 hover:border-blue-400 transition-all flex flex-col justify-between group">
-          <div>
-            <div class="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-xs mb-2 shadow-2xs">DOC</div>
-            <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-700">Microsoft Word</h4>
-            <p class="text-[11px] text-slate-500 mt-1">Editable <code>.doc</code> document with MOE formatting and editable checklists.</p>
+      <!-- Training Video & Guide Highlights -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+        <!-- Marker Video Box -->
+        <div class="p-4 rounded-2xl bg-gradient-to-r from-rose-500/10 via-pink-500/10 to-indigo-500/10 border border-rose-200 flex flex-col justify-between gap-3">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-indigo-600 text-white flex items-center justify-center font-bold text-base shadow-md shrink-0">
+              🎬
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Marker Training Video Guide</h4>
+              <p class="text-[11px] text-slate-600 mt-0.5">8 chapters with voice narration, dual subtitles (CC), and interactive simulations.</p>
+            </div>
           </div>
-          <div class="mt-3 pt-2 border-t border-blue-100 flex items-center text-xs font-bold text-blue-700 gap-1">
+          <div class="flex items-center gap-2 pt-2 border-t border-rose-100/60 justify-end">
+            <a href="MARKER_TRAINING_VIDEO.html" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-xs transition-all flex items-center gap-1 cursor-pointer">
+              <span>▶ Watch Video</span>
+            </a>
+            <a href="SECS_Marker_Training_Guide.pptx" download="SECS_Marker_Training_Guide.pptx" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold shadow-xs transition-all flex items-center gap-1 cursor-pointer">
+              <span>📥 Marker PPT</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- HOD & Moderator Video Box -->
+        <div class="p-4 rounded-2xl bg-gradient-to-r from-purple-500/10 via-indigo-500/10 to-sky-500/10 border border-purple-200 flex flex-col justify-between gap-3">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-800 text-white flex items-center justify-center font-bold text-base shadow-md shrink-0">
+              🎓
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wide">HOD &amp; Moderator Video Guide</h4>
+              <p class="text-[11px] text-slate-600 mt-0.5">8 chapters on Dedicated Wizard, KP Sampling Hub, Audit Drawer, &amp; Hawk/Dove Calibration.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 pt-2 border-t border-purple-100/60 justify-end">
+            <a href="HOD_MODERATOR_VIDEO.html" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold shadow-xs transition-all flex items-center gap-1 cursor-pointer">
+              <span>▶ Watch Video</span>
+            </a>
+            <a href="SECS_HOD_Moderator_Guide.pptx" download="SECS_HOD_Moderator_Guide.pptx" class="px-3 py-1.5 rounded-lg bg-indigo-900 hover:bg-indigo-950 text-white text-xs font-semibold shadow-xs transition-all flex items-center gap-1 cursor-pointer">
+              <span>📥 HOD PPT</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download Options Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-5">
+        <!-- Word Option -->
+        <a href="USER_MANUAL.doc" download="SECS_User_Manual.doc" class="p-3.5 rounded-xl border border-blue-200 bg-blue-50/40 hover:bg-blue-50 hover:border-blue-400 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-xs mb-1.5 shadow-2xs">DOC</div>
+            <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-700">Microsoft Word</h4>
+            <p class="text-[10px] text-slate-500 mt-0.5 leading-snug">Full editable manual with standardized assessment checklists.</p>
+          </div>
+          <div class="mt-2.5 pt-2 border-t border-blue-100 flex items-center text-xs font-bold text-blue-700 gap-1">
             <span>Download .doc</span>
             <span>&darr;</span>
           </div>
         </a>
 
         <!-- PDF Option -->
-        <a href="USER_MANUAL.pdf" download="SECS_User_Manual.pdf" class="p-4 rounded-xl border border-rose-200 bg-rose-50/40 hover:bg-rose-50 hover:border-rose-400 transition-all flex flex-col justify-between group">
+        <a href="USER_MANUAL.pdf" download="SECS_User_Manual.pdf" class="p-3.5 rounded-xl border border-rose-200 bg-rose-50/40 hover:bg-rose-50 hover:border-rose-400 transition-all flex flex-col justify-between group">
           <div>
-            <div class="w-9 h-9 rounded-lg bg-rose-600 text-white flex items-center justify-center font-bold text-xs mb-2 shadow-2xs">PDF</div>
+            <div class="w-8 h-8 rounded-lg bg-rose-600 text-white flex items-center justify-center font-bold text-xs mb-1.5 shadow-2xs">PDF</div>
             <h4 class="text-xs font-bold text-slate-900 group-hover:text-rose-700">Adobe PDF Document</h4>
-            <p class="text-[11px] text-slate-500 mt-1">Printable high-res PDF with page numbers, diagrams, and color rubrics.</p>
+            <p class="text-[10px] text-slate-500 mt-0.5 leading-snug">Printable high-res PDF with diagrams and rubrics.</p>
           </div>
-          <div class="mt-3 pt-2 border-t border-rose-100 flex items-center text-xs font-bold text-rose-700 gap-1">
+          <div class="mt-2.5 pt-2 border-t border-rose-100 flex items-center text-xs font-bold text-rose-700 gap-1">
             <span>Download .pdf</span>
             <span>&darr;</span>
           </div>
         </a>
 
         <!-- Online HTML Option -->
-        <a href="USER_MANUAL.html" target="_blank" class="p-4 rounded-xl border border-emerald-200 bg-emerald-50/40 hover:bg-emerald-50 hover:border-emerald-400 transition-all flex flex-col justify-between group">
+        <a href="USER_MANUAL.html" target="_blank" class="p-3.5 rounded-xl border border-emerald-200 bg-emerald-50/40 hover:bg-emerald-50 hover:border-emerald-400 transition-all flex flex-col justify-between group">
           <div>
-            <div class="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-xs mb-2 shadow-2xs">HTML</div>
+            <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-xs mb-1.5 shadow-2xs">HTML</div>
             <h4 class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Interactive View</h4>
-            <p class="text-[11px] text-slate-500 mt-1">Open in new tab to read, print, or bookmark directly inside your browser.</p>
+            <p class="text-[10px] text-slate-500 mt-0.5 leading-snug">In-browser interactive reader with table of contents.</p>
           </div>
-          <div class="mt-3 pt-2 border-t border-emerald-100 flex items-center text-xs font-bold text-emerald-700 gap-1">
+          <div class="mt-2.5 pt-2 border-t border-emerald-100 flex items-center text-xs font-bold text-emerald-700 gap-1">
             <span>Open in Tab</span>
             <span>&rarr;</span>
           </div>
         </a>
 
-        <!-- PPT Option -->
-        <a href="SECS_Marker_KP_Briefing.pptx" download="SECS_Marker_KP_Briefing.pptx" class="p-4 rounded-xl border border-indigo-200 bg-indigo-50/40 hover:bg-indigo-50 hover:border-indigo-400 transition-all flex flex-col justify-between group">
+        <!-- HOD Presentation Guide PPT -->
+        <a href="SECS_HOD_Moderator_Guide.pptx" download="SECS_HOD_Moderator_Guide.pptx" class="p-3.5 rounded-xl border border-purple-200 bg-purple-50/40 hover:bg-purple-50 hover:border-purple-400 transition-all flex flex-col justify-between group">
           <div>
-            <div class="w-9 h-9 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-xs mb-2 shadow-2xs">PPT</div>
-            <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-700">Briefing (PPT)</h4>
-            <p class="text-[11px] text-slate-500 mt-1">11-slide briefing presentation for Marker & KP standardisation briefing.</p>
+            <div class="w-8 h-8 rounded-lg bg-purple-700 text-white flex items-center justify-center font-bold text-xs mb-1.5 shadow-2xs">HOD</div>
+            <h4 class="text-xs font-bold text-slate-900 group-hover:text-purple-700">HOD Guide (PPT)</h4>
+            <p class="text-[10px] text-slate-500 mt-0.5 leading-snug">14 widescreen slides with complete speaker notes.</p>
           </div>
-          <div class="mt-3 pt-2 border-t border-indigo-100 flex items-center text-xs font-bold text-indigo-700 gap-1">
+          <div class="mt-2.5 pt-2 border-t border-purple-100 flex items-center text-xs font-bold text-purple-700 gap-1">
+            <span>Download .pptx</span>
+            <span>&darr;</span>
+          </div>
+        </a>
+
+        <!-- Marker Briefing PPT Option -->
+        <a href="SECS_Marker_Training_Guide.pptx" download="SECS_Marker_Training_Guide.pptx" class="p-3.5 rounded-xl border border-indigo-200 bg-indigo-50/40 hover:bg-indigo-50 hover:border-indigo-400 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-xs mb-1.5 shadow-2xs">PPT</div>
+            <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-700">Marker Guide (PPT)</h4>
+            <p class="text-[10px] text-slate-500 mt-0.5 leading-snug">14 widescreen slides for marker calibration briefings.</p>
+          </div>
+          <div class="mt-2.5 pt-2 border-t border-indigo-100 flex items-center text-xs font-bold text-indigo-700 gap-1">
             <span>Download .pptx</span>
             <span>&darr;</span>
           </div>
@@ -3257,7 +3401,7 @@
       <!-- How it Works & PDPA Notice -->
       <div class="p-3 bg-sky-50/60 border border-sky-200 rounded-xl text-xs space-y-1.5 text-sky-950 mb-5">
         <div class="font-bold flex items-center gap-1.5 text-sky-900">
-          <span>🛡️ 100% MOE Compliant & Zero Collision Architecture</span>
+          <span>🛡️ 100% Data Privacy & Zero-Collision Architecture</span>
         </div>
         <p class="text-[11px] text-sky-800 leading-relaxed">
           Each marker writes to their own decoupled file (<code class="bg-white/80 px-1 py-0.5 rounded font-mono">marker_M01.json</code>) in the shared folder. 20+ teachers can mark concurrently without file collisions. Marks stream directly into HOD live consolidation.

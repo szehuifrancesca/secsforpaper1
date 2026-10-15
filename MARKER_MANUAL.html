@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SECS - Marker Operational Manual & Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 15mm 20mm 15mm;
+      @bottom-right {
+        content: "Page " counter(page);
+        font-size: 8pt;
+        color: #64748b;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+      @bottom-left {
+        content: "SECS Marker Manual | Primary School Paper 1 Standards";
+        font-size: 8pt;
+        color: #64748b;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", Calibri, Helvetica, Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.55;
+      color: #1e293b;
+      margin: 0;
+      padding: 24px 32px;
+      background-color: #ffffff;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+    .no-break {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .doc-header {
+      border-bottom: 3px solid #0284c7;
+      padding-bottom: 14px;
+      margin-bottom: 22px;
+    }
+    .brand-badge {
+      display: inline-block;
+      background-color: #0284c7;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 10pt;
+      padding: 3px 10px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 21pt;
+      color: #0f172a;
+      margin: 4px 0 6px 0;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #475569;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 13.5pt;
+      color: #0369a1;
+      border-bottom: 1.5px solid #cbd5e1;
+      padding-bottom: 4px;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      page-break-after: avoid;
+    }
+    h3 {
+      font-size: 11pt;
+      color: #0f172a;
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-weight: 700;
+      page-break-after: avoid;
+    }
+
+    p {
+      margin: 0 0 8px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 14px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      padding: 7px 10px;
+      text-align: left;
+      font-weight: 700;
+    }
+    td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 10px;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    .callout {
+      border-radius: 8px;
+      padding: 11px 14px;
+      margin: 12px 0 14px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+    .callout-info {
+      background-color: #f0f9ff;
+      border-left: 4px solid #0284c7;
+      color: #0369a1;
+    }
+    .callout-success {
+      background-color: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #15803d;
+    }
+    .callout-warning {
+      background-color: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      color: #b45309;
+    }
+    .callout-alert {
+      background-color: #fef2f2;
+      border-left: 4px solid #ef4444;
+      color: #b91c1c;
+    }
+
+    .pill-green {
+      display: inline-block;
+      background-color: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-size: 8pt;
+      font-weight: 600;
+      margin: 2px 3px 2px 0;
+    }
+    .pill-pink {
+      display: inline-block;
+      background-color: #fff1f2;
+      color: #9f1239;
+      border: 1px solid #fecdd3;
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-size: 8pt;
+      font-weight: 600;
+      margin: 2px 3px 2px 0;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 8pt;
+    }
+    .badge-blue { background-color: #e0f2fe; color: #0369a1; }
+    .badge-purple { background-color: #f3e8ff; color: #7e22ce; }
+    .badge-emerald { background-color: #d1fae5; color: #065f46; }
+
+    .flow-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 12px 0;
+      font-family: monospace;
+      font-size: 8.5pt;
+      line-height: 1.5;
+      color: #334155;
+      page-break-inside: avoid;
+    }
+
+    ul, ol {
+      margin: 0 0 10px 0;
+      padding-left: 22px;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+
+    .doc-footer {
+      margin-top: 36px;
+      border-top: 1px solid #cbd5e1;
+      padding-top: 12px;
+      font-size: 8pt;
+      color: #64748b;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DOCUMENT HEADER -->
+  <div class="doc-header">
+    <div class="brand-badge">SECS v2.3 • MARKER OPERATIONAL MANUAL</div>
+    <h1>Marker Operational Manual & Practical Guide</h1>
+    <p class="subtitle">Standard Operating Procedures for Primary School Paper 1 (Writing) Grading & Moderation</p>
+    <p style="font-size: 8.5pt; color: #64748b; margin-top: 4px;">
+      100% Client-Side &amp; Offline-Ready • Zero-Overwriting Platinum Standard • Real-Time Shared Folder Synchronization
+    </p>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="callout callout-info no-break" style="margin-bottom: 20px;">
+    <h3 style="margin-top: 0; color: #0284c7;">Quick Navigation</h3>
+    <table style="margin: 0; font-size: 8.5pt; border: none;">
+      <tr style="background: none;"><td style="border: none; padding: 2px 4px;"><strong>1. Quick Launch & Authentication</strong></td><td style="border: none; padding: 2px 4px;">Opening the app, entering marker passcode, selecting target exam paper</td></tr>
+      <tr style="background: none;"><td style="border: none; padding: 2px 4px;"><strong>2. Shared Folder Live-Sync</strong></td><td style="border: none; padding: 2px 4px;">1-Click folder link, multi-device sync, zero lag, and progress counters</td></tr>
+      <tr style="background: none;"><td style="border: none; padding: 2px 4px;"><strong>3. Platinum Rubric Isolation</strong></td><td style="border: none; padding: 2px 4px;">P3/P4 (Max 15: 7C + 8L) vs P5 (Max 40: 20C + 20L) strict paper separation</td></tr>
+      <tr style="background: none;"><td style="border: none; padding: 2px 4px;"><strong>4. Physical Script Verification</strong></td><td style="border: none; padding: 2px 4px;">Mandatory booklet cover verification gate to prevent wrong-candidate scoring</td></tr>
+      <tr style="background: none;"><td style="border: none; padding: 2px 4px;"><strong>5. Scoring & Feedback Taxonomy</strong></td><td style="border: none; padding: 2px 4px;">Entering marks, Green strengths & Pink learning gaps, remarks</td></tr>
+      <tr style="background: none;"><td style="border: none; padding: 2px 4px;"><strong>6. 10-Minute Amendment Window</strong></td><td style="border: none; padding: 2px 4px;">Grace period rules, locked finalized scripts, and KP Moderation procedures</td></tr>
+    </table>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 1. QUICK LAUNCH & AUTHENTICATION                                          -->
+  <!-- ========================================================================= -->
+  <h2>1. Quick Launch & Authentication</h2>
+  
+  <p>
+    The <strong>School-Based Exam Control System (SECS)</strong> runs directly in your web browser (Microsoft Edge or Google Chrome). It requires no internet connectivity and operates completely offline on your school-issued laptop.
+  </p>
+
+  <div class="flow-box">
+    [1] Double-click "start_secs.bat" ──► [2] Enter Marker Passcode (Default: 1132)<br>
+    [3] Select Target Exam Paper (e.g. 2026 P3 EOY Paper 1) ──► [4] Select Marker Code (e.g. M06)<br>
+    [5] (If KP Moderator selected) Enter Confidential KP PIN ──► [6] Arrive at Marker Portal
+  </div>
+
+  <h3>1.1 Step-by-Step Login</h3>
+  <ol>
+    <li>Navigate to the folder on your laptop or shared drive: <code>school-exam-control-system</code>.</li>
+    <li>Double-click <strong><code>start_secs.bat</code></strong> (or right-click <code>index.html</code> &rarr; Open with Microsoft Edge / Google Chrome).</li>
+    <li>On the initial security prompt, enter the <strong>Paper Marker Passcode</strong> (default: <code>1132</code> or the code communicated by your HOD).</li>
+    <li>Click <strong>Unlock Portal</strong>.</li>
+    <li>From the dropdowns, select:
+      <ul>
+        <li><strong>Examination Paper</strong>: Choose the specific paper you are grading (e.g., <em>2026 P3 EOY Paper 1</em> or <em>2026 P5 EOY Paper 1</em>).</li>
+        <li><strong>Marker Code &amp; Name</strong>: Choose your assigned marker identity (e.g., <em>M06 - Mdm Tan</em>).</li>
+      </ul>
+    </li>
+    <li>Click <strong>Start Marking</strong>. You will enter the streamlined Marker Portal.</li>
+  </ol>
+
+  <!-- ========================================================================= -->
+  <!-- 2. SHARED FOLDER LIVE-SYNC                                                -->
+  <!-- ========================================================================= -->
+  <h2>2. Linking the School Shared Network Folder</h2>
+
+  <p>
+    To ensure that your marked scripts, tallies, and class completion rates synchronize smoothly with your peer markers and HOD in real time without lag:
+  </p>
+  
+  <div class="callout callout-success">
+    <strong>📁 1-Click Shared Folder Link</strong>:
+    <ol style="margin-top: 6px; margin-bottom: 0;">
+      <li>At the top-right header, click the folder badge <strong>"📁 Link School Shared Folder"</strong>.</li>
+      <li>In the browser file picker, select your school's designated shared exam folder: <code>EXAM DATA FOLDER (LINK TO THIS FOLDER)</code>.</li>
+      <li>Click <strong>"Select Folder"</strong> and grant <strong>"View and edit files"</strong> permission.</li>
+      <li>The badge immediately turns green: <span class="badge badge-emerald">🟢 Linked: EXAM DATA FOLDER</span>.</li>
+    </ol>
+  </div>
+
+  <p>
+    Once connected:
+  </p>
+  <ul>
+    <li><strong>Zero-Collision Partitioning</strong>: Your marked scripts are written to dedicated, paper-specific files (e.g. <code>marker_exam_1791451628276_M06.json</code>). No marker ever writes to another marker's file, preventing file lock conflicts.</li>
+    <li><strong>Zero-Lag Keystroke Protection</strong>: The sync engine automatically suspends background checks while you are actively keying marks, ensuring that typing and cursor movement remain 100% fluid.</li>
+    <li><strong>Real-Time Tally Broadcasting</strong>: As soon as you click Save on a script, your progress counters (Cohort Marked, Class Marked, and My Marked) update immediately and broadcast to the HOD live dashboard.</li>
+  </ul>
+
+  <div class="callout callout-warning">
+    <strong>💡 Opening SECS on Another Laptop? Check These 2 Steps:</strong>
+    <ol style="margin-top: 6px; margin-bottom: 0;">
+      <li><strong>Same Shared Folder Location</strong>: Ensure that both laptops select the <strong>exact same folder</strong> on your school network drive (e.g. <code>S:\Exam</code>) or synced OneDrive folder. If Laptop 1 and Laptop 2 select different folders on their local C: drives, they will not see each other's data.</li>
+      <li><strong>Connection Gate Permission</strong>: Because web browsers do not allow silent background disk access across machines, you must click <strong>"Select School Shared Folder"</strong> when prompted upon login on each laptop. Once linked, all candidate rosters, live marks, and progress bars synchronize automatically within 3.5 seconds.</li>
+    </ol>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 3. PLATINUM RUBRIC ISOLATION                                              -->
+  <!-- ========================================================================= -->
+  <h2>3. Platinum Standard Rubric Isolation (No Overwriting Across Papers)</h2>
+
+  <p>
+    To guarantee complete credibility and eliminate any confusion of marks when markers grade multiple cohorts (e.g., P3 and P5), the system enforces strict boundaries at all levels:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Cohort / Level</th>
+        <th style="width: 25%;">Content Rubric Max</th>
+        <th style="width: 25%;">Language Rubric Max</th>
+        <th style="width: 25%;">Total Paper 1 Max</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Primary 3 (P3)</strong></td>
+        <td><strong>Max 7</strong> (0 to 7)</td>
+        <td><strong>Max 8</strong> (0 to 8)</td>
+        <td><strong>Max 15 Marks</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Primary 4 (P4)</strong></td>
+        <td><strong>Max 7</strong> (0 to 7)</td>
+        <td><strong>Max 8</strong> (0 to 8)</td>
+        <td><strong>Max 15 Marks</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Primary 5 (P5)</strong></td>
+        <td><strong>Max 20</strong> (0 to 20)</td>
+        <td><strong>Max 20</strong> (0 to 20)</td>
+        <td><strong>Max 40 Marks</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Primary 5 HCL (Higher MT)</strong></td>
+        <td><strong>Max 20</strong> (0 to 20)</td>
+        <td><strong>Max 20</strong> (0 to 20)</td>
+        <td><strong>Max 40 Marks</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-info">
+    <strong>🛡️ Platinum Boundary Protection Rules</strong>:
+    <ul>
+      <li><strong>Independent File Partitioning</strong>: P3 grading files and P5 grading files are completely separate on disk. Switching papers never touches or overwrites another paper's data.</li>
+      <li><strong>Input Guard</strong>: When marking P3, the system strictly blocks any Content mark greater than 7 or Language mark greater than 8. If an accidental keystroke exceeds bounds, the input border flashes red and the Save button is disabled.</li>
+      <li><strong>Cross-Paper Shield</strong>: Candidates are matched strictly by their unique candidate ID and class bundle. Generic script numbers (e.g. SC-001) from P5 can never overwrite SC-001 in P3.</li>
+    </ul>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 4. PHYSICAL SCRIPT VERIFICATION GATE                                      -->
+  <!-- ========================================================================= -->
+  <div class="page-break"></div>
+  <h2>4. Physical Script Verification Gate (Zero Wrong-Candidate Scoring)</h2>
+
+  <p>
+    Because markers pick physical booklets randomly from the class stack, the system implements a mandatory <strong>Booklet Verification Gate</strong> on every unmarked script:
+  </p>
+
+  <div class="callout callout-warning">
+    <strong>⚠️ Mandatory Verification Step Before Marking Can Begin</strong>:
+    <ol style="margin-top: 6px; margin-bottom: 6px;">
+      <li>Select the class bundle matching your physical stack (e.g. <em>Humility 1 / 4.1</em>).</li>
+      <li>Search or click the candidate card corresponding to the booklet in front of you.</li>
+      <li><strong>Input Shielding Active</strong>: Notice that mark inputs, feedback tags, and the Save button are initially <em>shielded and locked</em> (dimmed at 40% opacity).</li>
+      <li>Read the amber verification banner: <em>"⚠️ Verify Physical Script Booklet Cover: Does this digital candidate match the physical paper booklet in your hand?"</em></li>
+      <li>Check the printed Candidate Name, Register Number, and Class on the booklet cover against the screen.</li>
+      <li>Click the green confirmation button: <strong><code>[✓ Yes, Booklet Matches Candidate (Unlock Marking)]</code></strong>.</li>
+      <li>The banner turns green (<code>✓ Verified Candidate Booklet</code>) and your cursor automatically jumps to the Content Mark field.</li>
+    </ol>
+  </div>
+
+  <p>
+    This protocol ensures 100% compliance with examination standards and prevents accidental entry into the wrong pupil's record.
+  </p>
+
+  <!-- ========================================================================= -->
+  <!-- 5. SCORING & QUALITATIVE FEEDBACK TAXONOMY                                -->
+  <!-- ========================================================================= -->
+  <h2>5. Scoring & Qualitative Feedback Taxonomy</h2>
+
+  <h3>5.1 Entering Scores</h3>
+  <ul>
+    <li><strong>Content Mark</strong>: Enter marks awarded for plot development, idea elaboration, and theme relevance (P3/P4: 0–7; P5: 0–20).</li>
+    <li><strong>Language Mark</strong>: Enter marks awarded for vocabulary, sentence variation, paragraphing, and mechanics (P3/P4: 0–8; P5: 0–20).</li>
+    <li><strong>Instant Sum &amp; Percentage</strong>: The total mark and percentage are calculated dynamically upon every keystroke.</li>
+  </ul>
+
+  <h3>5.2 Tagging Feedback Descriptors</h3>
+  <p>
+    Feedback descriptors are categorized into <strong>Writing Strengths</strong> and <strong>Diagnostic Gaps</strong>:
+  </p>
+  <ul>
+    <li><strong style="color: #065f46;">🟢 Green Descriptors (写作亮点与优势 / Writing Strengths)</strong>: Commendable techniques and creative merit.</li>
+    <li><strong style="color: #9f1239;">🔴 Pink Descriptors (常见失分点与短板 / Common Gaps)</strong>: Diagnostic weaknesses for subsequent classroom remediation.</li>
+  </ul>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 24%;">Rubric Dimension</th>
+        <th style="width: 38%; color: #065f46;">🟢 Strengths (Green)</th>
+        <th style="width: 38%; color: #9f1239;">🔴 Diagnostic Gaps (Pink)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Content Dimension<br><span style="color:#64748b; font-size:8pt;">内容评价</span></strong></td>
+        <td>
+          <span class="pill-green">紧扣图意或题目</span>
+          <span class="pill-green">结构清楚</span>
+          <span class="pill-green">内容生动</span>
+          <span class="pill-green">详略写分明</span>
+          <span class="pill-green">立意积极深刻</span>
+          <span class="pill-green">描写细腻生动</span>
+        </td>
+        <td>
+          <span class="pill-pink">离题 / 偏题</span>
+          <span class="pill-pink">内容不完整 / 平淡</span>
+          <span class="pill-pink">事件交代不清楚</span>
+          <span class="pill-pink">结尾没点题</span>
+          <span class="pill-pink">详略不当</span>
+          <span class="pill-pink">分段不清 / 篇幅不足</span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Language Dimension<br><span style="color:#64748b; font-size:8pt;">语言与表达</span></strong></td>
+        <td>
+          <span class="pill-green">词汇丰富</span>
+          <span class="pill-green">句式有变化</span>
+          <span class="pill-green">好词好句丰富</span>
+          <span class="pill-green">标点准确·字迹工整</span>
+        </td>
+        <td>
+          <span class="pill-pink">人称错误</span>
+          <span class="pill-pink">句式重复 / 语病多</span>
+          <span class="pill-pink">用词不精准 / 搭配不当</span>
+          <span class="pill-pink">标点错误 / 错别字较多</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ========================================================================= -->
+  <!-- 6. SCORE CONFIRMATION MODAL & 10-MINUTE AMENDMENT WINDOW                  -->
+  <!-- ========================================================================= -->
+  <h2>6. Pre-Advance Score Confirmation & 10-Minute Amendment Window</h2>
+
+  <h3>6.1 Pre-Advance Score Confirmation Modal</h3>
+  <p>
+    When you click <strong><code>💾 Save & Confirm Score</code></strong> (or press Enter):
+  </p>
+  <ul>
+    <li>A high-contrast confirmation modal appears displaying the candidate's name, class, Script ID, Content mark, Language mark, and total score.</li>
+    <li>Verify the score on screen against the hardcopy marks on the script cover.</li>
+    <li>Press <strong>Enter (↵)</strong> or click <strong>Confirm & Save Score</strong>.</li>
+    <li>The score is securely recorded in local storage and synced to the shared drive.</li>
+    <li>The system returns you directly to the class candidate picker so you can draw the next random booklet from your physical stack.</li>
+  </ul>
+
+  <h3>6.2 The 10-Minute Amendment Window</h3>
+  <div class="callout callout-info">
+    <strong>⏱️ 10-Minute Grace Period Protocol</strong>:
+    <ul>
+      <li>Upon saving a score, a <strong>10-minute countdown timer</strong> starts for that candidate.</li>
+      <li>During this 10-minute window, you may reopen the script and amend marks, tags, or remarks freely if you notice a recalculation error.</li>
+      <li>Once the 10-minute window expires, the script transitions to <strong>Finalized &amp; Locked</strong> status to protect standardisation integrity.</li>
+      <li>If any adjustment is required after finalization, please consult your <strong>Key Personnel (KP) Moderator</strong> or <strong>HOD</strong>, who hold authorization to moderate finalized scripts.</li>
+    </ul>
+  </div>
+
+  <h3>6.3 Key Personnel (KP) Moderation & Sampling Hub</h3>
+  <p>
+    If you are assigned as a <strong>Key Personnel (KP) Moderator</strong>:
+  </p>
+  <ul>
+    <li>During login, enter your confidential <strong>KP Authorization PIN</strong> (e.g. <code>MOD1132</code>).</li>
+    <li>In the Marker Portal, click the gold banner <strong>⭐ Open KP Moderation &amp; Script Sampling Hub</strong>.</li>
+    <li>Use the standardisation sampling filters to inspect borderline scripts, quality passes, and mark discrepancies across the cohort.</li>
+    <li>You can record moderated scores with full audit justification trails while preserving original marker marks intact.</li>
+  </ul>
+
+  <!-- DOCUMENT FOOTER -->
+  <div class="doc-footer">
+    <p><strong>School-Based Exam Control System (SECS)</strong> • High-Performance Primary School Assessment Engine</p>
+    <p>Designed for Examination Integrity, Segregation of Duties &amp; Paper 1 Quality Standards</p>
+  </div>
+
+</body>
+</html>
